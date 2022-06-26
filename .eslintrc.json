@@ -8,7 +8,6 @@
   "extends": [
     "eslint:recommended",
     "metarhia",
-    "prettier",
     "plugin:react/recommended",
     "plugin:prettier/recommended",
     "plugin:sonarjs/recommended",
@@ -21,7 +20,7 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react"],
+  "plugins": ["react", "prettier", "sonarjs", "jest"],
   "settings": {
     "react": {
       "version": "detect"
