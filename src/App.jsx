@@ -1,20 +1,50 @@
-import React from 'react';
-import { Divider } from '@mui/material';
+import React, { useState, useMemo } from 'react';
+import { Paper, Divider, useMediaQuery } from '@mui/material';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import ThemeContext from './context/ThemeContext.js';
 import Header from './components/Header/Header.jsx';
 import About from './components/About/About.jsx';
-import './App.scss';
 
-function App() {
+const App = () => {
+  if (
+    useMediaQuery('(prefers-color-scheme: dark)') &&
+    !localStorage.getItem('themeMode')
+  )
+    localStorage.setItem('themeMode', 'dark');
+  const [themeMode, setThemeMode] = useState(localStorage.getItem('themeMode'));
+  const theme = useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode: themeMode,
+        },
+      }),
+    [themeMode]
+  );
   return (
     <div className="App">
-      <Header />
-      <Divider />
-      <About />
-      <Divider />
-      <section></section>
-      <Divider />
+      <ThemeContext.Provider
+        value={{
+          toggleTheme: () => {
+            localStorage.setItem(
+              'themeMode',
+              themeMode === 'dark' ? 'light' : 'dark'
+            );
+            setThemeMode(themeMode === 'dark' ? 'light' : 'dark');
+          },
+        }}
+      >
+        <ThemeProvider theme={theme}>
+          <Paper sx={{ minHeight: '100vh' }} square>
+            <Header />
+            <Divider />
+            <About />
+            <Divider />
+          </Paper>
+        </ThemeProvider>
+      </ThemeContext.Provider>
     </div>
   );
-}
+};
 
 export default App;

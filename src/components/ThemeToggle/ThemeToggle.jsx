@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Switch } from '@mui/material';
-import './ThemeToggle.scss';
+import ThemeContext from '../../context/ThemeContext';
 
-export default function ThemeToggle() {
-  return <Switch />;
-}
+const ThemeToggle = () => {
+  const { toggleTheme } = useContext(ThemeContext);
+  return (
+    <Switch
+      checked={localStorage.getItem('themeMode') === 'dark'}
+      onChange={() => {
+        toggleTheme();
+      }}
+    />
+  );
+};
+
+export default ThemeToggle;

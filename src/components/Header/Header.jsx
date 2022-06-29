@@ -1,17 +1,22 @@
 import React from 'react';
-import { Button } from '@mui/material';
+import { AppBar, Button, Toolbar } from '@mui/material';
 import ThemeToggle from '../ThemeToggle/ThemeToggle.jsx';
-import './Header.scss';
 
-export default function Header() {
+const Header = () => {
   return (
-    <header>
-      <Button href="">About me</Button>
-      <Button href="">Education</Button>
-      <Button href="">Achievements</Button>
-      <Button href="">Projects</Button>
-      <Button href="">Courses</Button>
-      <ThemeToggle />
-    </header>
+    <AppBar position="sticky">
+      <Toolbar>
+        <nav style={{ flexGrow: 1 }}>
+          <Button href="#about">About me</Button>
+          <Button href="#education">Education</Button>
+          <Button href="#achievements">Achievements</Button>
+          <Button href="#projects">Projects</Button>
+          <Button href="#courses">Courses</Button>
+        </nav>
+        <ThemeToggle />
+      </Toolbar>
+    </AppBar>
   );
-}
+};
+
+export default Header;
