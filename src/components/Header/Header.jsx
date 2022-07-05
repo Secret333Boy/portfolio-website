@@ -9,6 +9,7 @@ const Header = () => {
         <nav style={{ flexGrow: 1 }}>
           <Button href="#about">About me</Button>
           <Button href="#education">Education</Button>
+          <Button href="#skills">Skills</Button>
           <Button href="#achievements">Achievements</Button>
           <Button href="#projects">Projects</Button>
           <Button href="#courses">Courses</Button>

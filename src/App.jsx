@@ -5,6 +5,7 @@ import ThemeContext from './context/ThemeContext.js';
 import Header from './components/Header/Header.jsx';
 import About from './components/About/About.jsx';
 import Education from './components/Education/Education.jsx';
+import Skills from './components/Skills/Skills.jsx';
 import Achievements from './components/Achievements/Achievements.jsx';
 import Projects from './components/Projects/Projects.jsx';
 import Courses from './components/Courses/Courses.jsx';
@@ -46,6 +47,8 @@ const App = () => {
             <About />
             <Divider />
             <Education />
+            <Divider />
+            <Skills />
             <Divider />
             <Achievements />
             <Divider />
